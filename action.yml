@@ -5,14 +5,9 @@ inputs:
     description: "Path to the .xcresult bundle"
     required: true
   show-test-results:
-    description: "Print test results"
+    description: "Print test results (none | all | failed)"
     required: false
     default: none
-    type: choice
-    options:
-      - none
-      - all
-      - failed
   output-md:
     description: "Path to output markdown file"
     required: false
@@ -21,7 +16,7 @@ branding:
   icon: "book-open"
   color: "blue"
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Check OS
       shell: bash

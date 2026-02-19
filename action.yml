@@ -45,19 +45,19 @@ runs:
 
     - name: Extract test-results from xcresult
       shell: bash
-      if: ${{ inputs.show-test-results }} != 'none'
+      if: ${{ inputs.show-test-results != 'none' }}
       run: |
         xcrun xcresulttool get test-results tests --path "${{ inputs.xcresult-path }}" > test-results.json
 
     - name: Generate Markdown Test-Results
       shell: bash
-      if: ${{ inputs.show-test-results }} == 'all'
+      if: ${{ inputs.show-test-results == 'all' }}
       run: |
         bash ${{ github.action_path }}/test-results-all.sh test-results.json "${{ inputs.output-md }}"
 
     - name: Generate Markdown Test-Results (Failed)
       shell: bash
-      if: ${{ inputs.show-test-results }} == 'failed'
+      if: ${{ inputs.show-test-results == 'failed' }}
       run: |
         bash ${{ github.action_path }}/test-results-failed.sh test-results.json "${{ inputs.output-md }}"
 

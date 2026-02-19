@@ -41,7 +41,7 @@ This GitHub Action parses your test results and creates a clear, readable markdo
 |--------------|----------|-------------------|--------------------------------------------------|
 | summary-path | ✅       | -                 | Path to the xcresulttool summary JSON file       |
 | output-md    | ❌       | test-summary.md   | Output markdown file name                        |
-show-each-test-results | ❌ | false | If true, print each test results |
+| show-test-results | ❌ | none | Can be `none`, `all` or `failed` |
 
 ## Output Example
 

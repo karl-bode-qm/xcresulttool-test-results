@@ -50,7 +50,7 @@ runs:
 
     - name: Extract test-results from xcresult
       shell: bash
-      if: ${{ inputs.show-each-test-results }} == 'true'
+      if: ${{ inputs.show-test-results }} != 'none'
       run: |
         xcrun xcresulttool get test-results tests --path "${{ inputs.xcresult-path }}" > test-results.json
 

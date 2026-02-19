@@ -15,7 +15,7 @@ ENV_DESC=$(jq -r '.environmentDescription' "$SUMMARY_JSON")
 START_TIME=$(jq '.startTime' "$SUMMARY_JSON")
 FINISH_TIME=$(jq '.finishTime' "$SUMMARY_JSON")
 DURATION=$(echo "$FINISH_TIME - $START_TIME" | bc)
-DURATION_FMT=$(printf "%.2f" "$DURATION")
+DURATION_FMT=$(LC_NUMERIC=C printf "%.2f" "$DURATION")
 
 cat <<EOF > "$OUTPUT_MD"
 ## Summary: $TITLE

@@ -1,4 +1,4 @@
-name: 'build-test'
+name: "build-test"
 on:
   pull_request:
   push:
@@ -15,8 +15,19 @@ jobs:
       - uses: ./
         with:
           xcresult-path: __tests__/data/TestResult.xcresult
-          show-each-test-results: 'true'
           output-md: test-summary.md
+
+      - uses: ./
+        with:
+          xcresult-path: __tests__/data/TestResult.xcresult
+          show-test-results: all
+          output-md: test-summary-all-tests.md
+
+      - uses: ./
+        with:
+          xcresult-path: __tests__/data/TestResult.xcresult
+          show-test-results: failed
+          output-md: test-summary-failed-tests.md
 
       - name: check test-summary.md
         run: |
